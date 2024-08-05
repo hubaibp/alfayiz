@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildTrade - Building Materials & Trading</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: white;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            perspective: 1000px;
+            height: 300px;
+        }
+
+        .service-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .service:hover .service-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-front, .service-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-back {
+            background-color: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .service i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .project {
+            position: relative;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .project:hover {
+            transform: rotateY(180deg);
+        }
+
+        .project-front, .project-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .project-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-back {
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            transform: rotateY(180deg);
+        }
+
+        .card-swiper {
+            padding: 50px 0;
+            background-color: #f0f0f0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .round-button {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: background-color 0.3s ease;
+        }
+
+        .round-button:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://via.placeholder.com/150x60?text=BuildTrade" alt="BuildTrade Logo" class="logo">
+                <button class="navbar-toggle" onclick="toggleNavbar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#products"><i class="fas fa-box-open"></i> Products</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>BuildTrade</h1>
+            <p>Your Trusted Partner in Building Materials</p>
+            <a href="#products" class="btn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Services</h2>
+            <div class="services">
+                <div class="service" data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-inner">
+                        <div class="service-front">
+                            <i class="fas fa-truck"></i>
+                            <h3>Delivery</h3>
+                            <p>Fast and reliable delivery of materials to your site.</p>
+                        </div>
+                        <div class="service-back">
+                            <p>We ensure timely delivery of all materials, maintaining the highest standards of care and efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service" data-aos="flip-left" data-aos-delay="200">
+                    <div class="service-inner">
+                        <div class="service-front">
+                            <i class="fas fa-tools"></i>
+                            <h3>Installation</h3>
+                            <p>Professional installation services for our products.</p>
+                        </div>
+                        <div class="service-back">
+                            <p>Our team of experts provides top-notch installation services, ensuring your products are set up correctly and efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service" data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-inner">
+                        <div class="service-front">
+                            <i class="fas fa-comments"></i>
+                            <h3>Consultation</h3>
+                            <p>Expert advice on choosing the right materials for your project.</p>
+                        </div>
+                        <div class="service-back">
+                            <p>Our experienced consultants are here to guide you through the selection process, ensuring you get the best materials for your specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">About Us</h2>
+            <p data-aos="fade-up">BuildTrade is a leading supplier of high-quality building materials in Qatar. With years of experience, we provide top-notch products and exceptional service to our customers, supporting the growth and development of Qatar's construction industry.</p>
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About Us" style="width: 100%; max-width: 800px; margin: 30px auto; display: block; border-radius: 10px;" data-aos="fade-up">
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Products</h2>
+            <div class="products">
+                <div class="product" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Copper Pipes">
+                    <div class="product-info">
+                        <h3>Copper Pipes</h3>
+                        <p>High-quality copper pipes for plumbing and HVAC systems.</p>
+                    </div>
+                </div>
+                <div class="product" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fittings">
+                    <div class="product-info">
+                        <h3>Fittings</h3>
+                        <p>A wide range of fittings for various applications.</p>
+                    </div>
+                </div>
+                <div class="product" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Valves">
+                    <div class="product-info">
+                        <h3>Valves</h3>
+                        <p>High-performance valves for industrial and residential use.</p>
+                    </div>
+                </div>
+                <div class="product" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sanitary Wares">
+                    <div class="product-info">
+                        <h3>Sanitary Wares</h3>
+                        <p>Modern and efficient sanitary wares for bathrooms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Projects</h2>
+            <div class="projects">
+                <div class="project" data-aos="flip-left" data-aos-delay="100">
+                    <div class="project-front">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1">
+                    </div>
+                    <div class="project-back">
+                        <h3>Luxury Apartment Complex</h3>
+                        <p>Supplied materials for a high-end residential project, ensuring top-quality finishes and durability.</p>
+                    </div>
+                </div>
+                <div class="project" data-aos="flip-left" data-aos-delay="200">
+                    <div class="project-front">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 2">
+                    </div>
+                    <div class="project-back">
+                        <h3>Modern Office Tower</h3>
+                        <p>Provided comprehensive plumbing solutions for a state-of-the-art office building, focusing on efficiency and sustainability.</p>
+                    </div>
+                </div>
+                <div class="project" data-aos="flip-left" data-aos-delay="300">
+                    <div class="project-front">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 3">
+                    </div>
+                    <div class="project-back">
+                        <h3>New City Hospital</h3>
+                        <p>Supplied and installed cutting-edge sanitary wares for a large medical facility, prioritizing hygiene and ease of maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card-swiper">
+        <div class="container">
+            <h2 data-aos="fade-up">Featured Insights</h2>
+            <div class="swiper-container" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Construction Trend" class="card-image">
+                        <div class="card-content">
+                            <h3>Latest Construction Trends</h3>
+                            <p>Explore the cutting-edge trends shaping the future of construction and building materials.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sustainable Building" class="card-image">
+                        <div class="card-content">
+                            <h3>Sustainable Building Practices</h3>
+                            <p>Discover how we're contributing to a greener future with our eco-friendly building materials.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Innovation" class="card-image">
+                        <div class="card-content">
+                            <h3>Innovation in Materials</h3>
+                            <p>Learn about the innovative materials we're developing to meet the challenges of modern construction.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <a href="#about" class="round-button">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="careers" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Careers</h2>
+            <p data-aos="fade-up">Join our team of professionals and grow your career in the construction industry. Check out our current openings and apply today!</p>
+            <a href="#" class="btn" data-aos="fade-up">View Job Openings</a>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Contact Us</h2>
+            <p data-aos="fade-up">Get in touch with us for any inquiries or orders.</p>
+            <p data-aos="fade-up">Email: info@buildtrade.com</p>
+            <p data-aos="fade-up">Phone: +974 1234 5678</p>
+            <p data-aos="fade-up">Address: 123 Construction St, Doha, Qatar</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Copper Pipes</a></li>
+                        <li><a href="#">Fittings</a></li>
+                        <li><a href="#">Valves</a></li>
+                        <li><a href="#">Sanitary Wares</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@buildtrade.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                    <p>Address: 123 Construction St, Doha, Qatar</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 200,
+        });
+
+        function toggleNavbar() {
+            var navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>       
