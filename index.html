@@ -600,7 +600,6 @@
     
 
 
-   
     <style>
         * {
             box-sizing: border-box;
@@ -647,7 +646,7 @@
 
         .card-wrapper {
             display: flex;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         .card {
@@ -706,7 +705,6 @@
             color: #7f8c8d;
         }
 
-        /* Add this to create scrollable content */
         .scrollable-content {
             height: 1000px;
             background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
@@ -771,7 +769,6 @@
 
         const indicatorDots = document.querySelectorAll('.indicator-dot');
 
-        // Update card counter
         function updateCardCounter() {
             cardCounter.textContent = `${currentIndex + 1} / ${cards.length}`;
         }
@@ -782,27 +779,37 @@
             });
         }
 
-        function showCard(index) {
-            cardWrapper.style.transform = `translateX(-${index * 100}%)`;
+        function showCard(index, smooth = true) {
             currentIndex = index;
+            const offset = -index * 100;
+            cardWrapper.style.transition = smooth ? 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none';
+            cardWrapper.style.transform = `translateX(${offset}%)`;
             updateCardCounter();
             updateIndicatorDots();
         }
 
         updateCardCounter();
 
-        let startX, moveX, isDragging = false;
-        const swipeThreshold = 50;
+        let startX, currentX, isDragging = false;
+        let startTime, currentTime;
+        let animationId = null;
 
         function handleStart(e) {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
             startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            currentX = startX;
+            startTime = currentTime = Date.now();
             isDragging = true;
+            cardWrapper.style.transition = 'none';
         }
 
         function handleMove(e) {
             if (!isDragging) return;
-            moveX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            const diff = moveX - startX;
+            currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            currentTime = Date.now();
+            const diff = currentX - startX;
             const offset = -currentIndex * 100 + (diff / cardContainer.offsetWidth) * 100;
             cardWrapper.style.transform = `translateX(${offset}%)`;
         }
@@ -810,8 +817,11 @@
         function handleEnd() {
             if (!isDragging) return;
             isDragging = false;
-            const diff = moveX - startX;
-            if (Math.abs(diff) > swipeThreshold) {
+            const diff = currentX - startX;
+            const timeDiff = currentTime - startTime;
+            const speed = Math.abs(diff) / timeDiff;
+            
+            if (Math.abs(diff) > cardContainer.offsetWidth * 0.2 || speed > 0.5) {
                 if (diff > 0 && currentIndex > 0) {
                     showCard(currentIndex - 1);
                 } else if (diff < 0 && currentIndex < cards.length - 1) {
@@ -844,9 +854,6 @@
 
         observer.observe(cardSection);
     </script>
-
-
-
 
 
     <section id="careers" class="section">
