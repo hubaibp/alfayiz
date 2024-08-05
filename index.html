@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
         :root {
             --primary-color: #0056b3;
@@ -330,6 +331,100 @@
             margin-right: 15px;
         }
 
+
+
+
+
+
+    
+        .card-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            font-size: 0.9em;
+            color: var(--dark-color);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhance overall attractiveness */
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(var(--primary-color-rgb), 0.1), rgba(var(--secondary-color-rgb), 0.1));
+            z-index: -1;
+        }
+
+        /* Add animation to sections */
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+
+
         @media (max-width: 1024px) {
     .hero h1 {
         font-size: 3em;
@@ -597,264 +692,52 @@
         </div>
     </section>
 
-    
 
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .card-section {
-            width: 100%;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .card-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .card-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            height: 400px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .card-wrapper {
-            display: flex;
-            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .card {
-            flex: 0 0 100%;
-            background-color: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: 60%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-size: clamp(1.2rem, 4vw, 1.4rem);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .card-description {
-            font-size: clamp(0.8rem, 3vw, 0.9rem);
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        .card-indicator {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .indicator-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #bdc3c7;
-            margin: 0 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .indicator-dot.active {
-            background-color: #3498db;
-        }
-
-        .card-counter {
-            text-align: center;
-            margin-top: 10px;
-            font-size: clamp(0.8rem, 3vw, 0.9rem);
-            color: #7f8c8d;
-        }
-
-        .scrollable-content {
-            height: 1000px;
-            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
-</head>
-<body>
-    <section class="card-section">
-        <h2 class="section-heading">Explore the World</h2>
-        <div class="card-container">
-            <div class="card-wrapper">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Nature">
-                    <div class="card-content">
-                        <h3 class="card-title">Breathtaking Landscapes</h3>
-                        <p class="card-description">Discover the raw beauty of nature in its most pristine form.</p>
+    <section id="featured-products" class="card-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Featured Products</h2>
+            <div class="card-container">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+                            <div class="card-content">
+                                <h3 class="card-title">Copper Pipes</h3>
+                                <p class="card-description">High-quality copper pipes for plumbing and HVAC systems.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+                            <div class="card-content">
+                                <h3 class="card-title">Fittings</h3>
+                                <p class="card-description">A wide range of fittings for various applications.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+                            <div class="card-content">
+                                <h3 class="card-title">Valves</h3>
+                                <p class="card-description">High-performance valves for industrial and residential use.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+                            <div class="card-content">
+                                <h3 class="card-title">Sanitary Wares</h3>
+                                <p class="card-description">Modern and efficient sanitary wares for bathrooms.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b" alt="City">
-                    <div class="card-content">
-                        <h3 class="card-title">Urban Adventures</h3>
-                        <p class="card-description">Immerse yourself in the vibrant energy of bustling cityscapes.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Cuisine">
-                    <div class="card-content">
-                        <h3 class="card-title">Culinary Delights</h3>
-                        <p class="card-description">Embark on a gastronomic journey through world cuisines.</p>
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
-        <div class="card-indicator"></div>
-        <div class="card-counter"></div>
     </section>
 
-    <div class="scrollable-content">
-        <h2>Scrollable Content</h2>
-        <p>You can now scroll down this page even when interacting with the card images above.</p>
-    </div>
 
-    <script>
-        const cardSection = document.querySelector('.card-section');
-        const cardContainer = document.querySelector('.card-container');
-        const cardWrapper = document.querySelector('.card-wrapper');
-        const cards = document.querySelectorAll('.card');
-        const cardIndicator = document.querySelector('.card-indicator');
-        const cardCounter = document.querySelector('.card-counter');
-        let currentIndex = 0;
 
-        // Create indicator dots
-        cards.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('indicator-dot');
-            if (index === 0) dot.classList.add('active');
-            cardIndicator.appendChild(dot);
-        });
 
-        const indicatorDots = document.querySelectorAll('.indicator-dot');
 
-        function updateCardCounter() {
-            cardCounter.textContent = `${currentIndex + 1} / ${cards.length}`;
-        }
 
-        function updateIndicatorDots() {
-            indicatorDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function showCard(index, smooth = true) {
-            currentIndex = index;
-            const offset = -index * 100;
-            cardWrapper.style.transition = smooth ? 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none';
-            cardWrapper.style.transform = `translateX(${offset}%)`;
-            updateCardCounter();
-            updateIndicatorDots();
-        }
-
-        updateCardCounter();
-
-        let startX, currentX, isDragging = false;
-        let startTime, currentTime;
-        let animationId = null;
-
-        function handleStart(e) {
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-            }
-            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            currentX = startX;
-            startTime = currentTime = Date.now();
-            isDragging = true;
-            cardWrapper.style.transition = 'none';
-        }
-
-        function handleMove(e) {
-            if (!isDragging) return;
-            currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            currentTime = Date.now();
-            const diff = currentX - startX;
-            const offset = -currentIndex * 100 + (diff / cardContainer.offsetWidth) * 100;
-            cardWrapper.style.transform = `translateX(${offset}%)`;
-        }
-
-        function handleEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            const diff = currentX - startX;
-            const timeDiff = currentTime - startTime;
-            const speed = Math.abs(diff) / timeDiff;
-            
-            if (Math.abs(diff) > cardContainer.offsetWidth * 0.2 || speed > 0.5) {
-                if (diff > 0 && currentIndex > 0) {
-                    showCard(currentIndex - 1);
-                } else if (diff < 0 && currentIndex < cards.length - 1) {
-                    showCard(currentIndex + 1);
-                } else {
-                    showCard(currentIndex);
-                }
-            } else {
-                showCard(currentIndex);
-            }
-        }
-
-        cardContainer.addEventListener('mousedown', handleStart);
-        cardContainer.addEventListener('mousemove', handleMove);
-        cardContainer.addEventListener('mouseup', handleEnd);
-        cardContainer.addEventListener('mouseleave', handleEnd);
-
-        cardContainer.addEventListener('touchstart', handleStart);
-        cardContainer.addEventListener('touchmove', handleMove);
-        cardContainer.addEventListener('touchend', handleEnd);
-
-        // Intersection Observer for scroll animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(cardSection);
-    </script>
-
+    
 
     <section id="careers" class="section">
         <div class="container">
@@ -948,6 +831,50 @@
     });
 });
       
+
+var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+
+
 
         window.addEventListener('scroll', function() {
             var header = document.querySelector('header');
