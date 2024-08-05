@@ -361,6 +361,87 @@
             margin-right: 15px;
         }
 
+        @media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3em;
+    }
+}
+
+
+.services, .products, .projects {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (max-width: 768px) {
+    .services, .products, .projects {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 250px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Existing styles */
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    
+    .hero p {
+        font-size: 1em;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .section h2 {
+        font-size: 2em;
+    }
+}
+
+
         @media (max-width: 768px) {
             .navbar-toggle {
                 display: block;
@@ -655,7 +736,11 @@
             var navLinks = document.getElementById("navLinks");
             navLinks.classList.toggle("active");
         }
-
+        document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
         var swiper = new Swiper('.swiper-container', {
             effect: 'coverflow',
             grabCursor: true,
