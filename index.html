@@ -599,247 +599,238 @@
 
     
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Swipeable Card Row</title>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
+
+   
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
     
-            body {
-                font-family: 'Poppins', sans-serif;
-                background-color: #f0f0f0;
-                color: #333;
-                overflow-x: hidden;
-            }
-    
-            .card-section {
-                width: 100%;
-                padding: 40px 20px;
-                background-color: #ffffff;
-                opacity: 0;
-                transform: translateY(50px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-    
-            .card-section.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-    
-            .section-heading {
-                text-align: center;
-                margin-bottom: 40px;
-                font-size: clamp(1.5rem, 5vw, 2.5rem);
-                color: #2c3e50;
-                font-weight: 600;
-            }
-    
-            .card-container {
-                position: relative;
-                width: 100%;
-                max-width: 400px;
-                height: 400px;
-                margin: 0 auto;
-                perspective: 1000px;
-            }
-    
-            .card {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: white;
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                transition: transform 0.5s ease;
-                cursor: grab;
-            }
-    
-            .card img {
-                width: 100%;
-                height: 60%;
-                object-fit: cover;
-            }
-    
-            .card-content {
-                padding: 20px;
-            }
-    
-            .card-title {
-                font-size: clamp(1.2rem, 4vw, 1.4rem);
-                font-weight: 600;
-                margin-bottom: 10px;
-            }
-    
-            .card-description {
-                font-size: clamp(0.8rem, 3vw, 0.9rem);
-                font-weight: 300;
-                line-height: 1.5;
-            }
-    
-            .card-indicator {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-            }
-    
-            .indicator-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background-color: #bdc3c7;
-                margin: 0 5px;
-                transition: background-color 0.3s ease;
-            }
-    
-            .indicator-dot.active {
-                background-color: #3498db;
-            }
-    
-            .card-counter {
-                text-align: center;
-                margin-top: 10px;
-                font-size: clamp(0.8rem, 3vw, 0.9rem);
-                color: #7f8c8d;
-            }
-        </style>
-    </head>
-    <body>
-        <section class="card-section">
-            <h2 class="section-heading">Explore the World</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Nature">
-                    <div class="card-content">
-                        <h3 class="card-title">Breathtaking Landscapes</h3>
-                        <p class="card-description">Discover the raw beauty of nature in its most pristine form.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b" alt="City">
-                    <div class="card-content">
-                        <h3 class="card-title">Urban Adventures</h3>
-                        <p class="card-description">Immerse yourself in the vibrant energy of bustling cityscapes.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Cuisine">
-                    <div class="card-content">
-                        <h3 class="card-title">Culinary Delights</h3>
-                        <p class="card-description">Embark on a gastronomic journey through world cuisines.</p>
-                    </div>
+       
+ 
+
+        .card-section {
+            width: 100%;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            opacity: 0;
+            transform: translateY(50px);
+            overflow-x: hidden;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .card-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+            cursor: grab;
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .card-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bdc3c7;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background-color: #3498db;
+        }
+
+        .card-counter {
+            text-align: center;
+            margin-top: 10px;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            color: #7f8c8d;
+        }
+    </style>
+
+    <section class="card-section">
+        <h2 class="section-heading">Explore the World</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Nature">
+                <div class="card-content">
+                    <h3 class="card-title">Breathtaking Landscapes</h3>
+                    <p class="card-description">Discover the raw beauty of nature in its most pristine form.</p>
                 </div>
             </div>
-            <div class="card-indicator"></div>
-            <div class="card-counter"></div>
-        </section>
-    
-        <script>
-            const cardSection = document.querySelector('.card-section');
-            const cardContainer = document.querySelector('.card-container');
-            const cards = document.querySelectorAll('.card');
-            const cardIndicator = document.querySelector('.card-indicator');
-            const cardCounter = document.querySelector('.card-counter');
-            let currentIndex = 0;
-    
-            // Create indicator dots
-            cards.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('indicator-dot');
-                if (index === 0) dot.classList.add('active');
-                cardIndicator.appendChild(dot);
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b" alt="City">
+                <div class="card-content">
+                    <h3 class="card-title">Urban Adventures</h3>
+                    <p class="card-description">Immerse yourself in the vibrant energy of bustling cityscapes.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Cuisine">
+                <div class="card-content">
+                    <h3 class="card-title">Culinary Delights</h3>
+                    <p class="card-description">Embark on a gastronomic journey through world cuisines.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-indicator"></div>
+        <div class="card-counter"></div>
+    </section>
+
+    <script>
+        const cardSection = document.querySelector('.card-section');
+        const cardContainer = document.querySelector('.card-container');
+        const cards = document.querySelectorAll('.card');
+        const cardIndicator = document.querySelector('.card-indicator');
+        const cardCounter = document.querySelector('.card-counter');
+        let currentIndex = 0;
+
+        // Create indicator dots
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('indicator-dot');
+            if (index === 0) dot.classList.add('active');
+            cardIndicator.appendChild(dot);
+        });
+
+        const indicatorDots = document.querySelectorAll('.indicator-dot');
+
+        // Update card counter
+        function updateCardCounter() {
+            cardCounter.textContent = `${currentIndex + 1} / ${cards.length}`;
+        }
+
+        // Initialize cards
+        function initCards() {
+            cards.forEach((card, index) => {
+                card.style.transform = `translateX(${100 * (index - currentIndex)}%) rotateY(${(index - currentIndex) * 5}deg)`;
+                card.style.zIndex = cards.length - Math.abs(index - currentIndex);
             });
-    
-            const indicatorDots = document.querySelectorAll('.indicator-dot');
-    
-            // Update card counter
-            function updateCardCounter() {
-                cardCounter.textContent = `${currentIndex + 1} / ${cards.length}`;
-            }
-    
-            // Initialize cards
-            function initCards() {
-                cards.forEach((card, index) => {
-                    card.style.transform = `translateX(${100 * (index - currentIndex)}%) rotateY(${(index - currentIndex) * 5}deg)`;
-                    card.style.zIndex = cards.length - Math.abs(index - currentIndex);
-                });
-                updateCardCounter();
-                updateIndicatorDots();
-            }
-    
-            function updateIndicatorDots() {
-                indicatorDots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-    
-            initCards();
-    
-            // Swipe functionality
-            let startX, moveX, isDragging = false;
-            const swipeThreshold = 100;
-    
-            function handleStart(e) {
-                startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                isDragging = true;
-            }
-    
-            function handleMove(e) {
-                if (!isDragging) return;
-                e.preventDefault();
-                moveX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                const diff = moveX - startX;
-                cards.forEach((card, index) => {
-                    const offset = index - currentIndex;
-                    card.style.transform = `translateX(calc(${100 * offset}% + ${diff}px)) rotateY(${offset * 5 - diff * 0.1}deg)`;
-                });
-            }
-    
-            function handleEnd() {
-                if (!isDragging) return;
-                isDragging = false;
-                const diff = moveX - startX;
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0 && currentIndex > 0) {
-                        currentIndex--;
-                    } else if (diff < 0 && currentIndex < cards.length - 1) {
-                        currentIndex++;
-                    }
+            updateCardCounter();
+            updateIndicatorDots();
+        }
+
+        function updateIndicatorDots() {
+            indicatorDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        initCards();
+
+        // Swipe functionality
+        let startX, moveX, isDragging = false;
+        const swipeThreshold = 100;
+
+        function handleStart(e) {
+            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            isDragging = true;
+        }
+
+        function handleMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            moveX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            const diff = moveX - startX;
+            cards.forEach((card, index) => {
+                const offset = index - currentIndex;
+                card.style.transform = `translateX(calc(${100 * offset}% + ${diff}px)) rotateY(${offset * 5 - diff * 0.1}deg)`;
+            });
+        }
+
+        function handleEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            const diff = moveX - startX;
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && currentIndex > 0) {
+                    currentIndex--;
+                } else if (diff < 0 && currentIndex < cards.length - 1) {
+                    currentIndex++;
                 }
-                initCards();
             }
-    
-            cardContainer.addEventListener('mousedown', handleStart);
-            cardContainer.addEventListener('mousemove', handleMove);
-            cardContainer.addEventListener('mouseup', handleEnd);
-            cardContainer.addEventListener('mouseleave', handleEnd);
-    
-            cardContainer.addEventListener('touchstart', handleStart);
-            cardContainer.addEventListener('touchmove', handleMove);
-            cardContainer.addEventListener('touchend', handleEnd);
-    
-            // Intersection Observer for scroll animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-    
-            observer.observe(cardSection);
-        </script>
-    </body>
-    </html>
-    
+            initCards();
+        }
+
+        cardContainer.addEventListener('mousedown', handleStart);
+        cardContainer.addEventListener('mousemove', handleMove);
+        cardContainer.addEventListener('mouseup', handleEnd);
+        cardContainer.addEventListener('mouseleave', handleEnd);
+
+        cardContainer.addEventListener('touchstart', handleStart);
+        cardContainer.addEventListener('touchmove', handleMove);
+        cardContainer.addEventListener('touchend', handleEnd);
+
+        // Intersection Observer for scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(cardSection);
+    </script>
+
+
    
 
 
