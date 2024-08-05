@@ -274,34 +274,6 @@
 
        
 
-        .swiper-container {
-            width: 100%;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            height: 400px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
         .round-button {
             position: absolute;
             right: 20px;
@@ -625,40 +597,315 @@
         </div>
     </section>
 
-    <section class="card-swiper">
-        <div class="container">
-            <h2 data-aos="fade-up">Featured Insights</h2>
-            <div class="swiper-container" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Construction Trend" class="card-image">
-                        <div class="card-content">
-                            <h3>Latest Construction Trends</h3>
-                            <p>Explore the cutting-edge trends shaping the future of construction and building materials.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sustainable Building" class="card-image">
-                        <div class="card-content">
-                            <h3>Sustainable Building Practices</h3>
-                            <p>Discover how we're contributing to a greener future with our eco-friendly building materials.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Innovation" class="card-image">
-                        <div class="card-content">
-                            <h3>Innovation in Materials</h3>
-                            <p>Learn about the innovative materials we're developing to meet the challenges of modern construction.</p>
-                        </div>
-                    </div>
+    
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .card-section {
+            width: 100%;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .card-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            padding: 10px 0;
+            position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .card-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            flex: 0 0 calc(100% - 40px);
+            scroll-snap-align: center;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .card-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bdc3c7;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background-color: #3498db;
+        }
+
+        .card-counter {
+            text-align: center;
+            margin-top: 10px;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            color: #7f8c8d;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-section {
+                padding: 60px 40px;
+            }
+
+            .card-container {
+                gap: 30px;
+            }
+
+            .card {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+
+            .card img {
+                height: 250px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .card-section {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .card img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="card-section">
+        <h2 class="section-heading">Explore the World</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Nature">
+                <div class="card-content">
+                    <h3 class="card-title">Breathtaking Landscapes</h3>
+                    <p class="card-description">Discover the raw beauty of nature in its most pristine form.</p>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-            <a href="#about" class="round-button">
-                <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b" alt="City">
+                <div class="card-content">
+                    <h3 class="card-title">Urban Adventures</h3>
+                    <p class="card-description">Immerse yourself in the vibrant energy of bustling cityscapes.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Cuisine">
+                <div class="card-content">
+                    <h3 class="card-title">Culinary Delights</h3>
+                    <p class="card-description">Embark on a gastronomic journey through world cuisines.</p>
+                </div>
+            </div>
         </div>
+        <div class="card-indicator"></div>
+        <div class="card-counter"></div>
     </section>
+
+    <script>
+        const cardSection = document.querySelector('.card-section');
+        const cardContainer = document.querySelector('.card-container');
+        const cards = document.querySelectorAll('.card');
+        const cardIndicator = document.querySelector('.card-indicator');
+        const cardCounter = document.querySelector('.card-counter');
+        let currentIndex = 0;
+
+        // Create indicator dots
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('indicator-dot');
+            if (index === 0) dot.classList.add('active');
+            cardIndicator.appendChild(dot);
+        });
+
+        const indicatorDots = document.querySelectorAll('.indicator-dot');
+
+        // Update card counter
+        function updateCardCounter() {
+            cardCounter.textContent = `${currentIndex + 1} / ${cards.length}`;
+        }
+
+        updateCardCounter();
+
+        // Handle scroll events
+        cardContainer.addEventListener('scroll', () => {
+            const scrollPosition = cardContainer.scrollLeft;
+            const cardWidth = cards[0].offsetWidth;
+            currentIndex = Math.round(scrollPosition / cardWidth);
+
+            // Update indicator dots
+            indicatorDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+
+            // Update card counter
+            updateCardCounter();
+
+            // Apply transform to cards
+            cards.forEach((card, index) => {
+                const offset = index - currentIndex;
+                const absOffset = Math.abs(offset);
+                card.style.transform = `scale(${1 - absOffset * 0.1}) translateX(${offset * 10}px)`;
+                card.style.opacity = 1 - absOffset * 0.2;
+            });
+        });
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let momentum = 0;
+        let animationId;
+
+        const handleStart = (e) => {
+            isDown = true;
+            cardContainer.style.scrollSnapType = 'none';
+            startX = (e.pageX || e.touches[0].pageX) - cardContainer.offsetLeft;
+            scrollLeft = cardContainer.scrollLeft;
+            cancelAnimationFrame(animationId);
+        };
+
+        const handleEnd = () => {
+            isDown = false;
+            cardContainer.style.scrollSnapType = 'x mandatory';
+            startMomentumScroll();
+        };
+
+        const handleMove = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - cardContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            cardContainer.scrollLeft = scrollLeft - walk;
+            momentum = walk * 0.1;
+        };
+
+        function startMomentumScroll() {
+            if (Math.abs(momentum) > 0.1) {
+                cardContainer.scrollLeft -= momentum;
+                momentum *= 0.95;
+                animationId = requestAnimationFrame(startMomentumScroll);
+            } else {
+                const cardWidth = cards[0].offsetWidth;
+                const snapIndex = Math.round(cardContainer.scrollLeft / cardWidth);
+                cardContainer.scrollTo({
+                    left: snapIndex * cardWidth,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Mouse events
+        cardContainer.addEventListener('mousedown', handleStart);
+        cardContainer.addEventListener('mouseleave', handleEnd);
+        cardContainer.addEventListener('mouseup', handleEnd);
+        cardContainer.addEventListener('mousemove', handleMove);
+
+        // Touch events
+        cardContainer.addEventListener('touchstart', handleStart);
+        cardContainer.addEventListener('touchend', handleEnd);
+        cardContainer.addEventListener('touchmove', handleMove);
+
+        // Intersection Observer for scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(cardSection);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <section id="careers" class="section">
         <div class="container">
@@ -677,6 +924,12 @@
             <p data-aos="fade-up">Address: 123 Construction St, Doha, Qatar</p>
         </div>
     </section>
+
+
+
+
+
+
 
     <footer>
         <div class="container">
@@ -701,6 +954,13 @@
                         <li><a href="#">Sanitary Wares</a></li>
                     </ul>
                 </div>
+
+
+
+
+
+
+                
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Email: info@buildtrade.com</p>
@@ -738,22 +998,7 @@
         document.getElementById("navLinks").classList.remove("active");
     });
 });
-        var swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
+      
 
         window.addEventListener('scroll', function() {
             var header = document.querySelector('header');
