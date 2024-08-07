@@ -26,7 +26,7 @@ body {
 }
 
 header {
-    background-color: rgba(255, 255, 255, 0.955);
+    background-color: rgb(255, 255, 255);
 height: 70px;
     position: fixed;
     width: 100%;
@@ -134,6 +134,7 @@ header.scrolled {
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: 10px;
+  
 }
 
 
@@ -364,7 +365,7 @@ footer {
 
 .card-section {
     padding: 80px 0;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
 }
 
 .card-container {
@@ -373,6 +374,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    box-shadow: #343a40;
 }
 
 .swiper-container {
@@ -395,7 +397,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255,255,255,0.9);
+    background: rgba(183, 160, 160, 0.84);
     padding: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -405,6 +407,7 @@ footer {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: var(--primary-color);
+  
 }
 
 .card-description {
