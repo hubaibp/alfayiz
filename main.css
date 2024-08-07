@@ -323,8 +323,8 @@ grid-template-columns: 1fr;
 }
 
 footer {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: rgb(42, 40, 40);
+    color: rgb(255, 255, 255);
     padding: 50px 0;
 }
 
@@ -347,13 +347,14 @@ footer {
 }
 
 .footer-section ul li a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
+
 }
 
 .social-links a {
-    color: white;
-    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
     margin-right: 15px;
 }
 
