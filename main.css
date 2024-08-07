@@ -118,10 +118,31 @@ header.scrolled {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+
 .btn:hover {
     background-color: #c0392b;
     transform: translateY(-3px);
 }
+
+.btn1 {
+    display: inline-block;
+    background-color:rgb(58, 197, 58);
+    color: white;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+
+.btn1:hover {
+    background-color: #2b3ac0;
+    transform: translateY(-3px);
+}
+
+
 
 .section {
     padding: 80px 0;
