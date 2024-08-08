@@ -6,88 +6,9 @@
     <title>BuildTrade - Building Materials & Trading</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="main1.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Poppins', Arial, sans-serif;
-        }
-
-        .fixed-section {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images1/bac.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            color: black;
-            text-shadow: 2px 2px 4px rgba(55, 176, 86, 0.5);
-            margin-bottom: 20px;
-            padding-top: 70px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            height: calc(100% - 150px);
-            width: 90%;
-            max-width: 500px;
-            padding: 20px 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .image-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .image-container img.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .image-container img:hover {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 20px;
-                padding-top: 60px;
-            }
-
-            .image-container {
-                width: 95%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="pages.css">
+  
 </head>
 <body>
     <header>
@@ -115,39 +36,9 @@
             <img src="images1/AC/acr5.jpeg" alt="AC 5">
             <img src="images1/AC/acr6.jpeg" alt="AC 6">
             <img src="images1/AC/acr7.jpeg" alt="AC 7">
-            <img src="images1/AC/acr8.jpeg" alt="AC 8">
+            <img src="images1/AC/acr8.jpeg" alt="actools">
         </div>
     </div>
-
-    <script>
-        function toggleNavbar() {
-            var navLinks = document.getElementById("navLinks");
-            navLinks.classList.toggle("active");
-        }
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById("navLinks").classList.remove("active");
-            });
-        });
-
-        // Intersection Observer for fade-up animation
-        const images = document.querySelectorAll('.image-container img');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        images.forEach(image => {
-            observer.observe(image);
-        });
-    </script>
+<script src="main2.js"></script>
 </body>
 </html>

@@ -12,11 +12,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
     background-color: var(--light-color);
+    
+}
+
+p {
+    font-size: 15px;
 }
 
 .container {
@@ -499,17 +508,9 @@ padding: 40px 0;
 padding: 0 15px;
 }
 }
-@media (max-width: 768px) {
-body {
-font-size: 14px;
-}
-}
 
-@media (max-width: 480px) {
-body {
-font-size: 12px;
-}
-}
+
+
 
 
 @media (max-width: 768px) {
