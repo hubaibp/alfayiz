@@ -88,14 +88,14 @@ header.scrolled {
 }
 
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images1/neww.png');
+    background-image: url('images1/joo.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.727);
     text-align: center;
     
     
@@ -120,7 +120,7 @@ header.scrolled {
 .btn {
     display: inline-block;
     background-color: var(--secondary-color);
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 12px 30px;
     text-decoration: none;
     border-radius: 5px;
