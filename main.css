@@ -95,7 +95,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(236, 232, 232);
+    color: rgba(236, 232, 232, 0.815);
     text-align: center;
     
     
