@@ -95,7 +95,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(41, 17, 196);
+    color: rgb(255, 255, 255);
     text-align: center;
     
     
@@ -120,7 +120,7 @@ header.scrolled {
 .btn {
     display: inline-block;
     background-color: var(--secondary-color);
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     padding: 12px 30px;
     text-decoration: none;
     border-radius: 5px;
@@ -130,7 +130,7 @@ header.scrolled {
 
 
 .btn:hover {
-    background-color: #c0392b;
+    background-color: #08a108;
     transform: translateY(-3px);
 }
 
