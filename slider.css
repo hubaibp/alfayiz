@@ -61,7 +61,7 @@ img {
   transform: translateX(-50%);
   text-align: center;
   color: white;
-  padding: 20px ;
+  padding: 60px ;
   background-color: rgba(0, 0, 0, 0.282);
   border-radius: 5px;
   width: 90%; /* Ensures text doesn't touch the edges */
