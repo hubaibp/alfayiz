@@ -38,7 +38,7 @@ body {
   background-color: rgba(0, 0, 0, 0.282);
   border-radius: 5px;
   width: 90%; /* Ensures text doesn't touch the edges */
-  max-width: 600px; /* Limits the text container width */
+  max-width: 6000px; /* Limits the text container width */
 }
 
 
