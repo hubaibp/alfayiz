@@ -41,25 +41,25 @@
   <!-- Image Slider Section -->
   <section id="image-slider">
     <div class="slide">
-      <img src="/first/z1.jpg" alt="Construction Image 1">
+      <img src="/alfayiz/first/z1.jpg" alt="Construction Image 1">
     </div>
     <div class="slide">
-      <img src="/first/z4.jpg" alt="Construction Image 2">
+      <img src="/alfayiz/first/z4.jpg" alt="Construction Image 2">
     </div>
     <div class="slide">
-        <img src="/first/z5.jpg" alt="Construction Image 2">
+        <img src="/alfayiz/first/z5.jpg" alt="Construction Image 2">
       </div>
       <div class="slide">
-        <img src="/first/z9.jpg" alt="Construction Image 2">
+        <img src="/alfayiz/first/z9.jpg" alt="Construction Image 2">
       </div>
       <div class="slide">
-        <img src="/first/z10.jpg" alt="Construction Image 2">
+        <img src="/alfayiz/first/z10.jpg" alt="Construction Image 2">
       </div>
       <div class="slide">
-        <img src="/first/z12.jpg" alt="Construction Image 2">
+        <img src="/alfayiz/first/z12.jpg" alt="Construction Image 2">
       </div>
       <div class="slide">
-        <img src="/first/z6.jpg" alt="Construction Image 2">
+        <img src="/alfayiz/first/z6.jpg" alt="Construction Image 2">
       </div>
       
     <!-- Add more slides as needed -->
@@ -170,20 +170,30 @@
 
   <script>
     // JavaScript for Image Slider 
-    let slideIndex = 0;
-    showSlides();
+ //     let slideIndex = 0;
+  //  showSlides();
 
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("slide");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 5000); // Change image every 4 seconds
-    }
+  //  function showSlides() {
+  //    let i;
+  //    let slides = document.getElementsByClassName("slide");
+  //    for (i = 0; i < slides.length; i++) {
+  //      slides[i].style.display = "none";
+  //    }
+  //    slideIndex++;
+  ////    if (slideIndex > slides.length) { slideIndex = 1 }
+  //    slides[slideIndex - 1].style.display = "block";
+  //    setTimeout(showSlides, 5000); // Change image every 4 seconds
+  //  }  
+
+  const imageSlider = document.querySelector('.image-slider');
+  let currentImageIndex = 0;
+  const totalImages = 7; // Update this if you change the number of images
+
+  setInterval(() => {
+    currentImageIndex = (currentImageIndex + 1) % totalImages;
+    imageSlider.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+  }, 3000);
+
   </script>
         
     </section>

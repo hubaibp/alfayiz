@@ -10,19 +10,13 @@ body {
   width: 100%;
   height: 590px; 
   display: flex;
+  display: flex;
   transition: transform 0.5s ease-in-out;
-  overflow: hidden;
+
  /* background: linear-gradient(to right, #ffffff, #ffffff); /* Darker gradient */
  
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  animation: slideLeftToRight 1s ease-in-out; /* Smoother transition */
-}
 
 .slide img {
   width: 100%;
