@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 600px; 
   overflow: hidden;
-  background: linear-gradient(to right, #0a9bd0, #0b0034); /* Darker gradient */
+ /* background: linear-gradient(to right, #ffffff, #ffffff); /* Darker gradient */
 }
 
 .slide {
