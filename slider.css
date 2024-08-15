@@ -81,7 +81,7 @@ body {
 
 #logo-track {
   display: inline-block;
-  animation: scrollLogos 1000s linear infinite; /* Slower scrolling */
+  animation: scrollLogos 800s linear infinite; /* Slower scrolling */
 }
 
 .logo {
