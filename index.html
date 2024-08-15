@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="buu.css">
+    <link rel="stylesheet" href="slider.css">
   
 </head>
 <body>
@@ -35,7 +36,101 @@
     <section id="home" class="hero">
       
 
-          </div>
+        
+  <!-- Image Slider Section -->
+  <section id="image-slider">
+    <div class="slide">
+      <img src="/first/z1.jpg" alt="Construction Image 1">
+    </div>
+    <div class="slide">
+      <img src="/first/z2.jpg" alt="Construction Image 2">
+    </div>
+    <div class="slide">
+        <img src="/first/z3.jpg" alt="Construction Image 2">
+      </div>
+      <div class="slide">
+        <img src="/first/z4.jpg" alt="Construction Image 2">
+      </div>
+      <div class="slide">
+        <img src="/first/z5.jpg" alt="Construction Image 2">
+      </div>
+      <div class="slide">
+        <img src="/first/z6.jpg" alt="Construction Image 2">
+      </div>
+      <div class="slide">
+        <img src="/first/z7.jpg" alt="Construction Image 2">
+      </div>
+      <div class="slide">
+        <img src="/first/z8.jpg" alt="Construction Image 2">
+      </div>
+    <!-- Add more slides as needed -->
+
+    <div class="slider-text">
+      <h2>Building the Future, Brick by Brick</h2>
+      <p>We construct dreams, one project at a time, with precision and passion.</p>
+      <button>Learn More</button>
+    </div>
+  </section>
+
+  <!-- Logo Scroller Section (Replace placeholders with actual logo URLs) -->
+  <section id="logo-scroller">
+    <div id="logo-track">
+      <div class="logo"><img src="/images1/brands/b1.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b2.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b3.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b4.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b5.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b6.gif" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b7.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b8.jpg" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b9.jpg" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b10.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b11.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/images1/brands/b12.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b1.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b14.jpg" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b15.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b16.png" alt="Logo 2"></div>
+      <div class="logo"><img src="/images1/brands/b17.png" alt="Logo 2"></div>
+      <!-- Add more logos as needed -->
+      <div class="logo"><img src="/alfayiz/images1/brands/b1.png" alt="Logo 1"></div>
+      <div class="logo"><img src="/alfayiz/images1/brands/b2.png" alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b3.png alt="Logo 1"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b4.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b5.png alt="Logo 1"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b6.gif alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b7.png alt="Logo 1"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b8.jpg alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b9.jpg alt="Logo 1"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b10.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b11.png alt="Logo 1"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b12.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b1.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b14.jpg alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b15.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b16.png alt="Logo 2"></div>
+      <div class="logo"><img src=/alfayiz/images1/brands/b17.png alt="Logo 2"></div>
+      <!-- Duplicate the first logo to create a seamless loop -->
+    </div>
+  </section>
+
+  <script>
+    // JavaScript for Image Slider 
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+  </script>
         
     </section>
 
