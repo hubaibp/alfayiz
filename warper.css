@@ -1,0 +1,90 @@
+/*
+.hero {
+  background-image: url('images1/niuu.png');
+  background-size: cover;
+  background-position: bottom;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(236, 232, 232, 0.859);
+  text-align: center;
+  
+  
+  
+}
+
+.hero-content {
+  max-width: 1000px;
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+
+*/
+
+
+.wrapper {
+  background-color: #ffffff;
+  height: 100px;
+
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.wrapper:before, .wrapper:after {
+  content: "";
+  position: absolute;
+  height: 13px;
+  width: 100%;
+  z-index: 2;
+}
+
+.wrapper:after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.wrapper:before {
+  left: 0;
+  top: 0;
+}
+
+.wrapper .track {
+  display: flex;
+  width: calc(500px * 1);
+  animation: scroll 39s 0.1s linear infinite;
+  
+}
+
+.wrapper .logo {
+  width: 450px;
+  padding: 10px;
+}
+
+.wrapper .logo img {
+  height: 50px;
+}
+
+@keyframes  scroll {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(calc(-500px * 10));
+  }
+}
