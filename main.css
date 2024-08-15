@@ -27,6 +27,14 @@ body {
 }
 
 
+.montserrat-h ,p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 0;
+    font-style: normal;
+  }
+
+
 p {
     font-size: 15px;
 }
