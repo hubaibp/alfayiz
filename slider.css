@@ -12,7 +12,7 @@ body {
   overflow: hidden;
  /* background: linear-gradient(to right, #ffffff, #ffffff); /* Darker gradient */
  bottom: 15%;
- position: absolute;
+
  -webkit-animation: linear infinite alternate;
  -webkit-animation-name: run;
  -webkit-animation-duration: 5s;
