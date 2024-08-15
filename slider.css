@@ -11,31 +11,14 @@ body {
   height: 590px; 
   overflow: hidden;
  /* background: linear-gradient(to right, #ffffff, #ffffff); /* Darker gradient */
- bottom: 15%;
-
- -webkit-animation: linear infinite alternate;
- -webkit-animation-name: run;
- -webkit-animation-duration: 5s;
+ 
 }
-@-webkit-keyframes run {
- 0% {
-   left: 0;
- }
- 50% {
-   right: 0;
- }
- 100% {
-   left: 0;
-   , webkit-transform: scaleX(-1);
- }
-}
-
 
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: none;
+  display: flex;
   animation: slideLeftToRight 1s ease-in-out; /* Smoother transition */
 }
 
