@@ -8,7 +8,7 @@ body {
 #image-slider {
   position: relative;
   width: 100%;
-  height: 400px; 
+  height: 900px; 
   overflow: hidden;
   background: linear-gradient(to right, #222, #444); /* Darker gradient */
 }
@@ -38,7 +38,7 @@ body {
   background-color: rgba(0, 0, 0, 0.282);
   border-radius: 5px;
   width: 90%; /* Ensures text doesn't touch the edges */
-  max-width: 6000px; /* Limits the text container width */
+  max-width: 7000px; /* Limits the text container width */
 }
 
 
