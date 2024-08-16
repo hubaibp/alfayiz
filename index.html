@@ -17,7 +17,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="images1\logoorg.jpg" alt="BuildTrade Logo" style="height: 55px; width: 70px; padding-bottom: 5px;">
+                <img src="images1/maintoplogo.jpg" alt="BuildTrade Logo" style="height: 60px; width: 130px; padding-bottom: 5px;">
                 <button class="navbar-toggle" onclick="toggleNavbar()">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -25,19 +25,207 @@
                     <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
                     <li><a href="#projects"><i class="fas fa-box-open"></i> Projects</a></li>
-                    <li><a href="#products"><i class="fas fa-project-diagram"></i> Products</a></li>
-                    
+                    <li><a href="#products"><i class="fas fa-project-diagram"></i> Products</a></li>                   
                     <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section id="home" class="hero">
       
 
         
-  <!-- Image Slider Section -->
+       
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+        
+          #containerp {
+            width: 100%;
+            height: 600px; 
+            overflow: hidden;
+            position: relative;
+          }
+        
+          #image-tracko {
+            display: flex;
+            width: 1050%;
+            animation: scroll 20s linear infinite; 
+          }
+        
+          #image-tracko img {
+            width: 9.5238%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; 
+          }
+        
+          #image-tracko img:hover {
+            transform: scale(1.1); 
+          }
+        
+          @keyframes scroll {
+            0% { transform: translateX(0%); }
+            14.28% { transform: translateX(0%); }
+            19.05% { transform: translateX(-9.5238%); } 
+            28.57% { transform: translateX(-9.5238%); }
+            33.33% { transform: translateX(-19.0476%); }
+            42.86% { transform: translateX(-19.0476%); }
+            47.62% { transform: translateX(-28.5714%); }
+            57.14% { transform: translateX(-28.5714%); }
+            61.90% { transform: translateX(-38.0952%); }
+            71.43% { transform: translateX(-38.0952%); }
+            76.19% { transform: translateX(-47.619%); }
+            85.71% { transform: translateX(-47.619%); }
+            90.48% { transform: translateX(-57.1429%); }
+            100% { transform: translateX(-57.1429%); }
+          }
+        
+          .image-contento {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 80%; 
+            z-index: 1; 
+          }
+        
+          .image-contento h2 {
+            font-family: "Montserrat", sans-serif; 
+            font-size: 3em;
+            margin-bottom: 0.1em; 
+            color: white; 
+            animation: text-glow 5s infinite alternate; 
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+          }
+        
+          .text-containero {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            padding: 20px 30px; 
+            border-radius: 10px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+          }
+        
+          .image-contento p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.3em;
+            margin-bottom: 1.5em; /* Space above the button */
+          }
+        
+          .image-contento button {
+            padding: 12px 25px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: #0ae7ea;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; 
+            animation: slide-up 2s ease; 
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); 
+          }
+        
+          @media (max-width: 768px)
+          {
+            #containerp {
+              height: 600px; 
+            }
+        
+            .image-contento h2 {
+              font-size: 2em;
+            }
+        
+            #image-tracko {
+            display: flex;
+            width: 1100%;
+            animation: scroll 20s linear infinite; 
+          }
+        
+          #image-tracko img {
+            width: 9.5238%;
+            height: 1000px;
+            object-fit: fill;
+            transition: transform 0.5s ease; 
+          }
+
+            .image-contento p {
+              font-size: 1em;
+            
+          }
+        
+          @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 10; }
+          }
+        
+          @keyframes slide-up {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+        
+          @keyframes text-glow {
+            from {
+              text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            to {
+              text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+          }
+        }
+        </style>
+    
+        
+        
+        <div id="containerp">
+          <div id="image-tracko">
+            <img src="/first/z1.jpg" alt="Nature Image 1">
+            <img src="/first/z2.jpg" alt="Nature Image 2">
+            <img src="/first/z4.jpg" alt="Nature Image 3">
+            <img src="/first/z9.jpg" alt="Nature Image 4">
+            <img src="/first/z10.jpg" alt="Nature Image 5">
+            <img src="/first/z7.jpg" alt="Nature Image 6">
+            <img src="/first/z6.jpg" alt="Nature Image 7">
+          </div>
+        
+          <div class="image-contento">
+            <h2>Al Fayiz Trading WLL</h2>
+            <div class="text-containero"> 
+                <p>Building Materials Experts.</p>
+                  <p>  Revolutionizing Qatar Construction: Expert Insights from Building Materials Pioneers.</p> 
+                    <a href="#products" class="btn1">View Tools</a>
+               
+            </div>
+          </div>
+        </div>
+        
+       
 
     
 
@@ -45,8 +233,32 @@
   
   </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- Logo Scroller Section (Replace placeholders with actual logo URLs) -->
   <section id="logo-scroller">
+    <h1 style="text-align: center;">Our Brands</h1>
     <div id="logo-track">
       <div class="logo"><img src="/images1/brands/b1.png" alt="Logo 1"></div>
       <div class="logo"><img src="/images1/brands/b2.png" alt="Logo 2"></div>
@@ -162,8 +374,8 @@
                             
                             
                         <div class="service-front">
-                                <img src="images1/high-quality.gif" style="width: 300px; padding: 150px 100px 10px 100px;">
-                                <h3 style="margin-bottom: 200px;">PRODUCTS</h3>
+                                <img src="images1/highquality.gif" style="width: 300px; padding: 150px 100px 10px 100px;">
+                                <h3 style="margin-bottom: 200px;">QUALITY PRODUCTS</h3>
                             </div>
                             <div class="service-back">
                                 <h3>High Quality Products</h3>
@@ -432,5 +644,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+
 </body>
-</html>       
+</html>

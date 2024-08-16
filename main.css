@@ -27,16 +27,10 @@ body {
 }
 
 
-.montserrat-h ,p {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 0;
-    font-style: normal;
-  }
-
 
 p {
     font-size: 15px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -117,7 +111,7 @@ header.scrolled {
 
 .btn1 {
     display: inline-block;
-    background-color:rgb(58, 197, 58);
+    background-color:rgb(95, 208, 231);
     color: white;
     padding: 12px 40px;
     text-decoration: none;
@@ -523,7 +517,10 @@ font-size: 2em;
     .navbar-toggle {
         display: block;
     }
-
+p{
+    font-family: "Montserrat", sans-serif;
+    font-size : 18px;
+}
     .nav-links {
         display: none;
         position: absolute;
