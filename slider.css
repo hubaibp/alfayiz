@@ -5,19 +5,19 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  padding: 30px ; /* Add some spacing */
+  padding: 10px ; /* Add some spacing */
   background-color: #f8f9fa; /* Light gray background */
   
 }
 
 #logo-track {
   display: inline-block;
-  animation: scrollLogos 50s linear infinite; /* Slower scrolling */
+  animation: scrollLogos 60s linear infinite; /* Slower scrolling */
 }
 
 .logo {
   display: inline-block;
-  height: 60px; /* Larger logo size */
+  height: 50px; /* Larger logo size */
   margin: 15px;
   opacity: 0.8; /* Slightly transparent logos */
   transition: opacity 0.3s; /* Smooth hover effect */
