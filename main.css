@@ -2,7 +2,7 @@
     --primary-color: #0056b3;
     --secondary-color: #e74c3c;
     --accent-color: #3498db;
-    --light-color: #f8f9fa;
+    --light-color: #eceaea;
     --dark-color: #343a40;
 }
 
@@ -176,12 +176,12 @@ justify-content: center;
 align-items: center;
 padding: 20px;
 border-radius: 10px;
-background-color: white;
-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+background-color: rgb(255, 255, 255);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.738);
 }
 
 .service-front {
-color: var(--primary-color);
+color: rgb(7, 16, 116)
 }
 
 .service-back {
@@ -218,7 +218,7 @@ grid-template-columns: 1fr;
 }
 
 .product {
-    background-color: white;
+    background-color: rgb(222, 220, 220);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -274,7 +274,7 @@ grid-template-columns: 1fr;
 
 .project-back {
     background-color: var(--primary-color);
-    color: white;
+    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: center;
