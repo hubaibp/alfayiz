@@ -39,7 +39,12 @@ body {
 
 
 
-
+.cont7 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+    gap: 0px;
+    perspective: 100px;
+}
 
 
 p {
@@ -51,7 +56,19 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
+
+@keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 
 header {
     background-color: rgb(255, 255, 255);
@@ -147,6 +164,7 @@ header.scrolled {
 
 .section {
     padding: 80px 0;
+   
 }
 
 .section h2 {
@@ -462,7 +480,10 @@ font-size: 3em;
 }
 
 
-.services, .products, .projects {
+
+
+
+.services, .products, .projects ,.cont7 {
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
