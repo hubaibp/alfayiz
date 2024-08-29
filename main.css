@@ -37,14 +37,14 @@ body {
 
 
 
-
+/*
 
 .cont7 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
     gap: 0px;
     perspective: 100px;
-}
+}  */
 
 
 p {
