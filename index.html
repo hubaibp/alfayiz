@@ -230,7 +230,6 @@
   
   </section>
 -->
-
 <section id="home" class="hero">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
@@ -278,9 +277,8 @@
 
       .image-contento {
         position: absolute;
-        top: 62%;
+        top: 50%;
         left: 50%;
-        height: 100%;
         transform: translate(-50%, -50%);
         text-align: center;
         color: rgba(255, 255, 255, 0);
@@ -295,8 +293,12 @@
         font-size: 4em;
         margin-bottom: .1em;
         color: rgb(255, 255, 255);
-        animation: text-glow 5s infinite alternate, slide-in-left 1s ease-out;
+        animation: text-glow 5s infinite alternate, typing 4s steps(20) 0s 1 normal both, blink 0.5s infinite;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        display: inline-block;
       }
 
       .text-containero {
@@ -417,6 +419,15 @@
           text-shadow: 0 0 20px rgba(255, 255, 255, 1);
         }
       }
+
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+
+      @keyframes blink {
+        50% { border-color: transparent; }
+      }
     </style>
 
     <div id="containerp">
@@ -440,8 +451,6 @@
       </div>
     </div>
   </section>
-
-
 
 
 
