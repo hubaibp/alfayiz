@@ -43,6 +43,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
     gap: 10px;
     perspective:10px;
+    text-align: justify;
+    padding: 50px;
 }  
 
 
@@ -229,8 +231,15 @@ line-height: 1.4;
 @media (max-width: 768px) {
 .services {
 grid-template-columns: 1fr;
+
 }
+.cont7 {
+    padding:15px;
 }
+
+}
+
+
 
 .products {
     display: grid;
