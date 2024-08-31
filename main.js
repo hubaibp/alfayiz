@@ -29,8 +29,6 @@ service.addEventListener('touchend', function() {
 });
 
 
-
-
 // Scroll to top button
 const scrollTopButton = document.getElementById('scrollTop');
 
